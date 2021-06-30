@@ -1,8 +1,11 @@
 import unittest
 from Calculator import Calculator
+from CsvReader import CsvReader
+from pprint import pprint
 
 
 class MyTestCase(unittest.TestCase):
+
     def setUp(self) -> None:
         self.calculator = Calculator()
 
@@ -13,29 +16,15 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(self.calculator.result, 0)
 
     def test_add_method_calculator(self):
-        self.assertEqual(self.calculator.add(2, 2), 4)
-        self.assertEqual(self.calculator.result, 4)
+        test_data = CsvReader("/src/datafile/Addition.csv").get_data
+        for row in test_data:
+            self.assertEqual(self.calculator.add(row['Value 1'], row['Value 2']), float(row['Result']))
+            self.assertEqual(self.calculator.result, float(row['Result']))
 
-    def test_subtract_method_calculator(self):
-        self.assertEqual(self.calculator.subtract(2, 2), 0)
-        self.assertEqual(self.calculator.result, 0)
-
-    def test_multiply_method_calculator(self):
-        self.assertEqual(self.calculator.multiply(2, 2), 4)
-        self.assertEqual(self.calculator.result, 4)
-
-    def test_divide_method_calculator(self):
-        self.assertEqual(self.calculator.divide(12, 2), 6)
-        self.assertEqual(self.calculator.result, 6)
-
-    def test_square_method_calculator(self):
-        self.assertEqual(self.calculator.square(4), 16)
-        self.assertEqual(self.calculator.result, 16)
-
-    def test_squareroot_method_calculator(self):
-        self.assertEqual(self.calculator.square_root(16), 4)
-        self.assertEqual(self.calculator.result, 4)
+    def tearDown(self) -> None:
+        # self.calculator.dispose()
+        pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
