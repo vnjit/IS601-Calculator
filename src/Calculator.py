@@ -4,6 +4,17 @@ import math
 def addition(a, b):
     return float(a) + float(b)
 
+def multiplication(a, b):
+    return float(a) * float(b)
+
+def division(a, b):
+    if int(b) != 0:
+        return float(a) / float(b)
+    else:
+        return ZeroDivisionError
+
+
+
 class Calculator:
     result = 0
 
@@ -12,6 +23,14 @@ class Calculator:
 
     def add(self, a, b):
         self.result = addition(a, b)
+        return self.result
+
+    def multiply(self, a, b):
+        self.result = multiplication(a, b)
+        return self.result
+
+    def divide(self, a, b):
+        self.result = division(a, b)
         return self.result
 
 

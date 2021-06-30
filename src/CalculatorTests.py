@@ -21,6 +21,18 @@ class MyTestCase(unittest.TestCase):
             self.assertEqual(self.calculator.add(row['Value 1'], row['Value 2']), float(row['Result']))
             self.assertEqual(self.calculator.result, float(row['Result']))
 
+    def test_multiply_method_calculator(self):
+        test_data = CsvReader("/src/datafile/Multiplication.csv").get_data
+        for row in test_data:
+            self.assertEqual(self.calculator.multiply(row['Value 1'], row['Value 2']), float(row['Result']))
+            self.assertEqual(self.calculator.result, float(row['Result']))
+
+    def test_divide_method_calculator(self):
+        test_data = CsvReader("/src/datafile/Division.csv").get_data
+        for row in test_data:
+            self.assertAlmostEqual(self.calculator.divide(row['Value 2'], row['Value 1']), float(row['Result']))
+            self.assertAlmostEqual(self.calculator.result, float(row['Result']))
+
     def tearDown(self) -> None:
         # self.calculator.dispose()
         pass
