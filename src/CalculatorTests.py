@@ -33,6 +33,12 @@ class MyTestCase(unittest.TestCase):
             self.assertAlmostEqual(self.calculator.divide(row['Value 2'], row['Value 1']), float(row['Result']))
             self.assertAlmostEqual(self.calculator.result, float(row['Result']))
 
+    def test_square_method_calculator(self):
+        test_data = CsvReader("/src/datafile/Square.csv").get_data
+        for row in test_data:
+            self.assertAlmostEqual(self.calculator.square(row['Value 1']), float(row['Result']))
+            self.assertAlmostEqual(self.calculator.result, float(row['Result']))
+
     def tearDown(self) -> None:
         # self.calculator.dispose()
         pass
