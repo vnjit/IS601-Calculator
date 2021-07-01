@@ -4,6 +4,9 @@ import math
 def addition(a, b):
     return float(a) + float(b)
 
+def subtraction(a, b):
+    return int(a) - int(b)
+
 def multiplication(a, b):
     return float(a) * float(b)
 
@@ -19,6 +22,10 @@ def square(a):
 def squareroot(a):
     return math.sqrt(float(a))
 
+def mean(data):
+    mean = data
+    return mean
+
 class Calculator:
     result = 0
 
@@ -28,6 +35,11 @@ class Calculator:
     def add(self, a, b):
         self.result = addition(a, b)
         return self.result
+
+    def subtract(self, a, b):
+        self.result = subtraction(a, b)
+        return self.result
+
 
     def multiply(self, a, b):
         self.result = multiplication(a, b)
