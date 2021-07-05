@@ -22,16 +22,13 @@ def square(a):
 def squareroot(a):
     return math.sqrt(float(a))
 
-def mean(data):
-    mean = data
-    return mean
-
 class Calculator:
     result = 0
 
     def __init__(self):
         pass
 
+    
     def add(self, a, b):
         self.result = addition(a, b)
         return self.result
