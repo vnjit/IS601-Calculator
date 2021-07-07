@@ -1,25 +1,9 @@
-import math
-
-def addition(a, b):
-    return float(a) + float(b)
-
-def subtraction(a, b):
-    return int(a) - int(b)
-
-def multiplication(a, b):
-    return float(a) * float(b)
-
-def division(a, b):
-    if int(b) != 0:
-        return float(a) / float(b)
-    else:
-        return ZeroDivisionError
-
-def square(a):
-    return float(a) ** 2
-
-def squareroot(a):
-    return math.sqrt(float(a))
+from Calculator.Subtraction import subtraction
+from Calculator.Addition import addition
+from Calculator.Multiplication import multiplication
+from Calculator.Division import division
+from Calculator.Square import square
+from Calculator.SquareRoot import squareroot
 
 class Calculator:
     result = 0
